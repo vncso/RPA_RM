@@ -1,5 +1,6 @@
 import pyautogui as p
 import PyPDF2
+from os.path import exists
 rateios = [
     {
         'id': 11,
@@ -531,42 +532,180 @@ def gera_pdf_rateio():
     :return: Novo arquivo PDF com todas as páginas do rateio.
     """
     # Abre os arquivos que devem ser unificados
-    pdf1File = open(r'pdf_rateio\nf.pdf', 'rb')
-    pdf2File = open(r'pdf_rateio\boleto.pdf', 'rb')
-    pdf3File = open(r'N:\TI\RPA_rateio\rateio_gerado.pdf', 'rb')
+    nf1 = open('nf.pdf', 'rb') if exists('nf.pdf') else None
+    nf2 = open('nf2.pdf', 'rb') if exists('nf2.pdf') else None
+    nf3 = open('nf3.pdf', 'rb') if exists('nf3.pdf') else None
+    nf4 = open('nf4.pdf', 'rb') if exists('nf4.pdf') else None
+    nf5 = open('nf5.pdf', 'rb') if exists('nf5.pdf') else None
+    nf6 = open('nf6.pdf', 'rb') if exists('nf6.pdf') else None
+    nf7 = open('nf7.pdf', 'rb') if exists('nf7.pdf') else None
+    nf8 = open('nf8.pdf', 'rb') if exists('nf8.pdf') else None
+
+    boleto1 = open('boleto.pdf', 'rb') if exists('boleto.pdf') else None
+    boleto2 = open('boleto2.pdf', 'rb') if exists('boleto2.pdf') else None
+    boleto3 = open('boleto3.pdf', 'rb') if exists('boleto3.pdf') else None
+    boleto4 = open('boleto4.pdf', 'rb') if exists('boleto4.pdf') else None
+    boleto5 = open('boleto5.pdf', 'rb') if exists('boleto5.pdf') else None
+    boleto6 = open('boleto6.pdf', 'rb') if exists('boleto6.pdf') else None
+    boleto7 = open('boleto7.pdf', 'rb') if exists('boleto7.pdf') else None
+    boleto8 = open('boleto8.pdf', 'rb') if exists('boleto8.pdf') else None
+
+    rateio1 = open('rateio.pdf', 'rb') if exists('rateio.pdf') else None
+    rateio2 = open('rateio2.pdf', 'rb') if exists('rateio2.pdf') else None
+    rateio3 = open('rateio3.pdf', 'rb') if exists('rateio3.pdf') else None
+    rateio4 = open('rateio4.pdf', 'rb') if exists('rateio4.pdf') else None
+    rateio5 = open('rateio5.pdf', 'rb') if exists('rateio5.pdf') else None
+    rateio6 = open('rateio6.pdf', 'rb') if exists('rateio6.pdf') else None
+    rateio7 = open('rateio7.pdf', 'rb') if exists('rateio7.pdf') else None
+    rateio8 = open('rateio8.pdf', 'rb') if exists('rateio8.pdf') else None
 
     # Lê os arquivos que foram abertos
-    pdf1Reader = PyPDF2.PdfFileReader(pdf1File)
-    pdf2Reader = PyPDF2.PdfFileReader(pdf2File)
-    pdf3Reader = PyPDF2.PdfFileReader(pdf3File)
+    nf1reader = PyPDF2.PdfFileReader(nf1) if nf1 is not None else None
+    nf2reader = PyPDF2.PdfFileReader(nf2) if nf2 is not None else None
+    nf3reader = PyPDF2.PdfFileReader(nf3) if nf3 is not None else None
+    nf4reader = PyPDF2.PdfFileReader(nf4) if nf4 is not None else None
+    nf5reader = PyPDF2.PdfFileReader(nf5) if nf5 is not None else None
+    nf6reader = PyPDF2.PdfFileReader(nf6) if nf6 is not None else None
+    nf7reader = PyPDF2.PdfFileReader(nf7) if nf7 is not None else None
+    nf8reader = PyPDF2.PdfFileReader(nf8) if nf8 is not None else None
+
+    boleto1reader = PyPDF2.PdfFileReader(boleto1) if boleto1 is not None else None
+    boleto2reader = PyPDF2.PdfFileReader(boleto2) if boleto2 is not None else None
+    boleto3reader = PyPDF2.PdfFileReader(boleto3) if boleto3 is not None else None
+    boleto4reader = PyPDF2.PdfFileReader(boleto4) if boleto4 is not None else None
+    boleto5reader = PyPDF2.PdfFileReader(boleto5) if boleto5 is not None else None
+    boleto6reader = PyPDF2.PdfFileReader(boleto6) if boleto6 is not None else None
+    boleto7reader = PyPDF2.PdfFileReader(boleto7) if boleto7 is not None else None
+    boleto8reader = PyPDF2.PdfFileReader(boleto8) if boleto8 is not None else None
+
+    rateio1reader = PyPDF2.PdfFileReader(rateio1) if rateio1 is not None else None
+    rateio2reader = PyPDF2.PdfFileReader(rateio2) if rateio2 is not None else None
+    rateio3reader = PyPDF2.PdfFileReader(rateio3) if rateio3 is not None else None
+    rateio4reader = PyPDF2.PdfFileReader(rateio4) if rateio4 is not None else None
+    rateio5reader = PyPDF2.PdfFileReader(rateio5) if rateio5 is not None else None
+    rateio6reader = PyPDF2.PdfFileReader(rateio6) if rateio6 is not None else None
+    rateio7reader = PyPDF2.PdfFileReader(rateio7) if rateio7 is not None else None
+    rateio8reader = PyPDF2.PdfFileReader(rateio8) if rateio8 is not None else None
+
+    arquivos = [
+        {
+            'nf': nf1reader,
+            'boleto': boleto1reader,
+            'rateio': rateio1reader
+        },
+        {
+            'nf': nf2reader,
+            'boleto': boleto2reader,
+            'rateio': rateio2reader
+        },
+        {
+            'nf': nf3reader,
+            'boleto': boleto3reader,
+            'rateio': rateio3reader
+        },
+        {
+            'nf': nf4reader,
+            'boleto': boleto4reader,
+            'rateio': rateio4reader
+        },
+        {
+            'nf': nf5reader,
+            'boleto': boleto5reader,
+            'rateio': rateio5reader
+        },
+        {
+            'nf': nf6reader,
+            'boleto': boleto6reader,
+            'rateio': rateio6reader
+        },
+        {
+            'nf': nf7reader,
+            'boleto': boleto7reader,
+            'rateio': rateio7reader
+        },
+        {
+            'nf': nf8reader,
+            'boleto': boleto8reader,
+            'rateio': rateio8reader
+        },
+    ]
 
     # Cria um novo Objeto "PdfFileWriter" que representa um arquivo em branco
     pdfWriter = PyPDF2.PdfFileWriter()
 
-    # Verifica todas as páginas do primeiro arquivo
-    for pageNum in range(pdf1Reader.numPages):
-        pageObj = pdf1Reader.getPage(pageNum)
-        pdfWriter.addPage(pageObj)
+    # Passa pelas páginas dos arquivos para gerar o conteúdo.
+    for arquivo in arquivos:
+        if arquivo['nf'] is not None:
+            for pageNum in range(arquivo['nf'].numPages):
+                pageObj = arquivo['nf'].getPage(pageNum)
+                pdfWriter.addPage(pageObj)
 
-    # Verifica todas as páginas do segundo arquivo
-    for pageNum in range(pdf2Reader.numPages):
-        pageObj = pdf2Reader.getPage(pageNum)
-        pdfWriter.addPage(pageObj)
+        if arquivo['boleto'] is not None:
+            for pageNum in range(arquivo['boleto'].numPages):
+                pageObj = arquivo['boleto'].getPage(pageNum)
+                pdfWriter.addPage(pageObj)
 
-    # Verifica todas as páginas do terceiro arquivo
-    for pageNum in range(pdf3Reader.numPages):
-        pageObj = pdf3Reader.getPage(pageNum)
-        pdfWriter.addPage(pageObj)
+        if arquivo['rateio'] is not None:
+            for pageNum in range(arquivo['rateio'].numPages):
+                pageObj = arquivo['rateio'].getPage(pageNum)
+                pdfWriter.addPage(pageObj)
 
-    # Cria um novo arquivo unindo todas as páginas dos arquivos verificados anteriormente.
-    pdfOutputFile = open(r'N:\TI\RPA_rateio\rateio.pdf', 'wb')
+    # Salva o novo arquivo gerado.
+    pdfOutputFile = open('MergedFiles.pdf', 'wb')
     pdfWriter.write(pdfOutputFile)
 
-    # Fecha todos os arquivos.
+    # Fecha os arquivos - Criados no processo e Abertos no início
     pdfOutputFile.close()
-    pdf1File.close()
-    pdf2File.close()
-    pdf3File.close()
+    if nf1 is not None:
+        nf1.close()
+    if nf2 is not None:
+        nf2.close()
+    if nf3 is not None:
+        nf3.close()
+    if nf4 is not None:
+        nf4.close()
+    if nf5 is not None:
+        nf5.close()
+    if nf6 is not None:
+        nf6.close()
+    if nf7 is not None:
+        nf7.close()
+    if nf8 is not None:
+        nf8.close()
+
+    if boleto1 is not None:
+        boleto1.close()
+    if boleto2 is not None:
+        boleto2.close()
+    if boleto3 is not None:
+        boleto3.close()
+    if boleto4 is not None:
+        boleto4.close()
+    if boleto5 is not None:
+        boleto5.close()
+    if boleto6 is not None:
+        boleto6.close()
+    if boleto7 is not None:
+        boleto7.close()
+    if boleto8 is not None:
+        boleto8.close()
+
+    if rateio1 is not None:
+        rateio1.close()
+    if rateio2 is not None:
+        rateio2.close()
+    if rateio3 is not None:
+        rateio3.close()
+    if rateio4 is not None:
+        rateio4.close()
+    if rateio5 is not None:
+        rateio5.close()
+    if rateio6 is not None:
+        rateio6.close()
+    if rateio7 is not None:
+        rateio7.close()
+    if rateio8 is not None:
+        rateio8.close()
 
 
 def rateio_transportes(mes, ano, coligada, tipo, valor):
